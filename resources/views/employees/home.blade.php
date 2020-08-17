@@ -61,7 +61,7 @@
                                 <td>{{$employee->fname}}</td>
                                 <td>{{$employee->lname}}</td>
                                 <td style="width: 10%"><a href="/employees/{{$employee->id}}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i> View</a></td>
-                                <td style="width: 10%"><a href="" class="btn btn-sm btn-success"><i class="fas fa-pen"></i> Edit</a></td>
+                                <td style="width: 10%"><a href="/employees/{{$employee->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-pen"></i> Edit</a></td>
                                 <td style="width: 10%"><a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</a></td>
                             </tr>
                             @endforeach

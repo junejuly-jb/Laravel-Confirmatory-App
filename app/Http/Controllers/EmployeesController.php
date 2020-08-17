@@ -69,7 +69,8 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employeeDetails = Employee::find($id);
+        return view('employees.edit', compact('employeeDetails', 'id'));
     }
 
     /**
@@ -81,7 +82,16 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'fname' => 'required',
+            'lname' => 'required'
+        ]);
+
+        $employee = Employee::find($id);
+        $employee->fname = $request->input('fname');
+        $employee->lname = $request->input('lname');
+        $employee->save();
+        return redirect()->route('employees.index')->with('success', 'Data updated!');
     }
 
     /**
