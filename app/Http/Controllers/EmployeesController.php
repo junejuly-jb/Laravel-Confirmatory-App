@@ -102,6 +102,8 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employeeDetails = Employee::find($id);
+        $employeeDetails->delete();
+        return redirect()->route('employees.index')->with('success', 'Data updated!');
     }
 }
